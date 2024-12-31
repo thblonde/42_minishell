@@ -1,6 +1,6 @@
 NAME = minishell
 CFLAGS = -Wall -Wextra -Werror
-OBJECTS = src/main.o 
+OBJECTS = src/main.o src/init.o
 RLINE = -lreadline
 
 all: $(NAME)
@@ -12,6 +12,9 @@ $(NAME): $(OBJECTS)
 main.o: include/minishell.h
 	cc -c src/main.c
 
+init.o: include/minishell.h
+	cc -c src/init.c
+	
 clean:
 	rm -rf $(OBJECTS)
 	make clean -C libft/
